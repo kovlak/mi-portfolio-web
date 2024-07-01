@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 
 const SkillCategory = ({ title, skills }) => (
     <div className="mb-8">
@@ -52,17 +51,15 @@ export default function Skills() {
     ];
 
     return (
-        <Layout>
-            <div className="container mx-auto px-4 py-8">
-                <h1 className="text-4xl font-bold mb-8">Mis Habilidades</h1>
-                {skillsData.map((category, index) => (
-                    <SkillCategory
-                        key={index}
-                        title={category.category}
-                        skills={category.skills}
-                    />
-                ))}
-            </div>
-        </Layout>
+        <div className="container mx-auto px-4 py-8">
+            <h1 className="text-4xl font-bold mb-8">Mis Habilidades</h1>
+            {skillsData.map((category, index) => (
+                <SkillCategory
+                    key={index}
+                    title={category.category}
+                    skills={category.skills}
+                />
+            ))}
+        </div>
     );
 }
