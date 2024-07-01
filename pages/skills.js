@@ -25,8 +25,8 @@ export default function Skills() {
         {
             category: "Lenguajes de Programación",
             skills: [
-                { name: "JavaScript", level: 90 },
-                { name: "Python", level: 80 },
+                { name: "JavaScript", level: 70 },
+                { name: "Python", level: 75 },
                 { name: "TypeScript", level: 75 },
                 { name: "Java", level: 70 },
             ]
