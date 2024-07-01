@@ -1,61 +1,61 @@
-# Mi Portfolio Web
+# My Web Portfolio
 
-## Descripción
+## Description
 
-Este proyecto es un portfolio web personal desarrollado con Next.js y Tailwind CSS. Sirve como una vitrina de mis habilidades, proyectos y experiencia como desarrollador web, la idea es tener una landing page con múltiples secciones:
+This project is a personal web portfolio developed with Next.js and Tailwind CSS. It serves as a showcase of my skills, projects, and experience as a web developer. The idea is to have a landing page with multiple sections:
 
-- Proyectos
-- AboutMe
-- Tecnologías
-- Un blog personal
+- Projects
+- About Me
+- Technologies
+- A personal blog
 
-## Características
+## Features
 
-- Diseño responsivo
-- Páginas para mostrar proyectos, habilidades y información de contacto
-- Implementado con las mejores prácticas de SEO
-- Optimizado para rendimiento
+- Responsive design
+- Pages to showcase projects, skills, and contact information
+- Implemented with best SEO practices
+- Performance optimized
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - Next.js
 - React
 - Tailwind CSS
-- Jest y React Testing Library para pruebas
-- GitHub Actions para CI/CD
+- Jest and React Testing Library for testing
+- GitHub Actions for CI/CD
 
-## Instalación y Configuración
+## Installation and Setup
 
-1. Clone el repositorio:
-   ```
-   git clone https://github.com/tuusuario/mi-portfolio-web.git
-   ```
-2. Navegue al directorio del proyecto:
-   ```
-   cd mi-portfolio-web
-   ```
-3. Instale las dependencias:
-   ```
+1. Clone the repository:
+
+   git clone https://github.com/yourusername/my-web-portfolio.git
+
+2. Navigate to the project directory:
+
+   cd my-web-portfolio
+
+3. Install dependencies:
+
    npm install
-   ```
-4. Inicie el servidor de desarrollo:
-   ```
+
+4. Start the development server:
+
    npm run dev
-   ```
-5. Abra [http://localhost:3000](http://localhost:3000) en su navegador para ver el resultado.
 
-## Scripts Disponibles
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-- `npm run dev`: Inicia el servidor de desarrollo
-- `npm run build`: Construye la aplicación para producción
-- `npm start`: Inicia el servidor de producción
-- `npm test`: Ejecuta las pruebas
-- `npm run lint`: Ejecuta el linter
+## Available Scripts
 
-## Estructura del Proyecto
+- `npm run dev`: Starts the development server
+- `npm run build`: Builds the application for production
+- `npm start`: Starts the production server
+- `npm test`: Runs the tests
+- `npm run lint`: Runs the linter
+
+## Project Structure
 
 ```
-mi-portfolio-web/
+my-web-portfolio/
 │
 ├── components/
 │   ├── Layout.js
@@ -87,16 +87,16 @@ mi-portfolio-web/
 └── README.md
 ```
 
-## Contribución
+## Contribution
 
-Si encuentras algún problema o tienes sugerencias de mejora, por favor abre un issue o envía un pull request.
+If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
-## Licencia
+## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-## Contacto
+## Contact
 
-[Tu Nombre] - [tu@email.com]
+[Gerardo Rojas] - [rojasgerardo786@gmail.com]
 
-Link del proyecto: [https://github.com/tuusuario/mi-portfolio-web](https://github.com/tuusuario/mi-portfolio-web)
+Project link: [https://github.com/yourusername/my-web-portfolio](https://github.com/yourusername/my-web-portfolio)
