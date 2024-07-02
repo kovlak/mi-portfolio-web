@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { useLanguageTransition } from './LanguageTransitionContext';
 
 const LanguageToggle = () => {
     const router = useRouter();
+    const { setIsTransitioning } = useLanguageTransition();
 
     const changeLanguage = (locale) => {
+        setIsTransitioning(true);
         router.push(router.pathname, router.asPath, { locale });
     };
 
