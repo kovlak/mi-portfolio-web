@@ -2,14 +2,14 @@ import React from 'react';
 
 const SkillCategory = ({ title, skills }) => (
     <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">{title}</h2>
+        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">{title}</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
-                <div key={index} className="bg-gray-100 rounded-lg p-4 shadow-md">
-                    <p className="font-semibold">{skill.name}</p>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                <div key={index} className="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 shadow-md">
+                    <p className="font-semibold text-gray-800 dark:text-gray-200">{skill.name}</p>
+                    <div className="w-full bg-gray-300 dark:bg-gray-600 rounded-full h-2.5 mt-2">
                         <div
-                            className="bg-blue-600 h-2.5 rounded-full"
+                            className="bg-blue-600 dark:bg-blue-400 h-2.5 rounded-full"
                             style={{ width: `${skill.level}%` }}
                         ></div>
                     </div>
@@ -52,7 +52,7 @@ export default function Skills() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold mb-8">Mis Habilidades</h1>
+            <h1 className="text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">Mis Habilidades</h1>
             {skillsData.map((category, index) => (
                 <SkillCategory
                     key={index}
