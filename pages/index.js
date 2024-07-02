@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'  // Añadimos esta importación
 
 export default function Home() {
     return (
@@ -8,9 +9,9 @@ export default function Home() {
                 <p className="text-xl mb-6">
                     Hi, I'm [Your Name]. I'm a passionate web developer creating amazing digital experiences.
                 </p>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
+                <Link href="/projects" className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
                     View My Work
-                </button>
+                </Link>
             </div>
             <div className="md:w-1/2">
                 <Image
