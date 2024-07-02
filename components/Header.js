@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import ThemeToggle from './ThemeToggle'
+import LanguageToggle from './LanguageToggle'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -8,7 +10,11 @@ const Header = () => {
         <header className="bg-gray-800 dark:bg-gray-900 text-white">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center py-4">
-                    <div className="text-xl font-bold">Your Name</div>
+                    <div className="flex items-center space-x-4">
+                        <div className="text-xl font-bold">Your Name</div>
+                        <LanguageToggle />
+                        <ThemeToggle />
+                    </div>
                     <button
                         className="md:hidden bg-gray-700 dark:bg-gray-800 px-3 py-1 rounded"
                         onClick={() => setIsOpen(!isOpen)}
