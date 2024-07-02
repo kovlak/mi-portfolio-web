@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { appWithTranslation } from 'next-i18next';
-import Layout from '../components/Layout'
-import '../styles/globals.css'
+import Layout from '../components/Layout';
+import { LanguageTransitionProvider } from '../components/LanguageTransitionContext';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
     useEffect(() => {
@@ -14,12 +15,14 @@ function MyApp({ Component, pageProps }) {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </div>
-    )
+        <LanguageTransitionProvider>
+            <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </div>
+        </LanguageTransitionProvider>
+    );
 }
 
 export default appWithTranslation(MyApp);
