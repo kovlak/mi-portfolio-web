@@ -1,34 +1,43 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const AboutPage = () => {
+    const { t } = useTranslation('common');
+
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold mb-6">About Me</h1>
+            <h1 className="text-4xl font-bold mb-6">{t('aboutMe')}</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h2 className="text-2xl font-semibold mb-4">Who I Am</h2>
+                    <h2 className="text-2xl font-semibold mb-4">{t('whoIAm')}</h2>
                     <p className="mb-4">
-                        Hello! I'm [Gerardo], a passionate web developer with a keen interest in creating
-                        beautiful and functional websites. I specialize in front-end development,
-                        with expertise in React, Next.js, and Tailwind CSS.
+                        {t('aboutIntro', { name: 'Gerardo' })}
                     </p>
                     <p>
-                        When I'm not coding, you can find me [3D animation videos, AI reasearch, code testing and app developments].
-                        I believe that a well-rounded developer brings creativity from various aspects of life into their work.
+                        {t('aboutHobbies')}
                     </p>
                 </div>
                 <div>
-                    <h2 className="text-2xl font-semibold mb-4">My Journey</h2>
+                    <h2 className="text-2xl font-semibold mb-4">{t('myJourney')}</h2>
                     <ul className="list-disc list-inside space-y-2">
-                        <li>Started learning web development in [2022]</li>
-                        <li>Completed [relevant course or bootcamp] in [year]</li>
-                        <li>Worked on [4] freelance projects</li>
-                        <li>Currently focusing on [becoming a senior backend dev]</li>
+                        <li>{t('journeyItem1', { year: '2022' })}</li>
+                        <li>{t('journeyItem2')}</li>
+                        <li>{t('journeyItem3', { count: '4' })}</li>
+                        <li>{t('journeyItem4')}</li>
                     </ul>
                 </div>
             </div>
         </div>
     );
 };
+
+export async function getStaticProps({ locale }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ['common'])),
+        },
+    };
+}
 
 export default AboutPage;
