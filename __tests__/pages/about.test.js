@@ -1,19 +1,35 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AboutPage from '../../pages/about';
+import { LanguageTransitionProvider } from '../../components/LanguageTransitionContext';
 
-// Mock the Layout component
-jest.mock('../../components/Layout', () => {
-    return ({ children }) => <div data-testid="layout">{children}</div>;
-});
+// Mock the useRouter hook
+jest.mock('next/router', () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+        pathname: '/',
+        asPath: '/',
+        locale: 'en',
+    }),
+}));
+
+// Mock the useTranslation hook
+jest.mock('next-i18next', () => ({
+    useTranslation: () => ({
+        t: (str) => str,
+    }),
+}));
 
 describe('AboutPage', () => {
     it('renders the about page content', () => {
-        render(<AboutPage />);
+        render(
+            <LanguageTransitionProvider>
+                <AboutPage />
+            </LanguageTransitionProvider>
+        );
 
-        expect(screen.getByText('About Me')).toBeInTheDocument();
-        expect(screen.getByText('Who I Am')).toBeInTheDocument();
-        expect(screen.getByText('My Journey')).toBeInTheDocument();
-        expect(screen.getByText(/Hello! I'm/)).toBeInTheDocument();
+        expect(screen.getByText('aboutMe')).toBeInTheDocument();
+        expect(screen.getByText('whoIAm')).toBeInTheDocument();
+        expect(screen.getByText('myJourney')).toBeInTheDocument();
     });
 });
