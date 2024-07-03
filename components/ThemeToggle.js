@@ -13,8 +13,8 @@ const ThemeToggle = () => {
             const storedTheme = localStorage.getItem('theme');
             if (storedTheme === 'dark') {
                 setDarkMode(true);
-            } else if (!storedTheme) {
-                // If no theme is stored, check system preference
+            } else if (!storedTheme && window.matchMedia) {
+                // If no theme is stored and matchMedia is available, check system preference
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 setDarkMode(prefersDark);
             }
@@ -23,12 +23,14 @@ const ThemeToggle = () => {
 
     // Effect to apply theme changes
     useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+        if (typeof window !== 'undefined') {
+            if (darkMode) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
         }
     }, [darkMode]);
 

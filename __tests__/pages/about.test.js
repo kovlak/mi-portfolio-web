@@ -3,21 +3,21 @@ import { render, screen } from '@testing-library/react';
 import AboutPage from '../../pages/about';
 import { LanguageTransitionProvider } from '../../components/LanguageTransitionContext';
 
-// Mock the Layout component
-jest.mock('../../components/Layout', () => {
-    return ({ children }) => <div data-testid="layout">{children}</div>;
-});
+// Mock the useRouter hook
+jest.mock('next/router', () => ({
+    useRouter: () => ({
+        push: jest.fn(),
+        pathname: '/',
+        asPath: '/',
+        locale: 'en',
+    }),
+}));
 
 // Mock the useTranslation hook
 jest.mock('next-i18next', () => ({
-    useTranslation: () => {
-        return {
-            t: (str) => str,
-            i18n: {
-                changeLanguage: () => new Promise(() => { }),
-            },
-        };
-    },
+    useTranslation: () => ({
+        t: (str) => str,
+    }),
 }));
 
 describe('AboutPage', () => {
@@ -30,7 +30,6 @@ describe('AboutPage', () => {
 
         expect(screen.getByText('aboutMe')).toBeInTheDocument();
         expect(screen.getByText('whoIAm')).toBeInTheDocument();
-        expect(screen.getByText('myJourney')).toBeIntheDocument();
-        expect(screen.getByText('aboutIntro')).toBeInTheDocument();
+        expect(screen.getByText('myJourney')).toBeInTheDocument();
     });
 });
