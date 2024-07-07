@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLanguageTransition } from '../components/LanguageTransitionContext';
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 export default function Home() {
     const { t } = useTranslation('common');
@@ -17,28 +18,35 @@ export default function Home() {
     }, [isTransitioning, setIsTransitioning]);
 
     return (
-        <div className={`transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="flex flex-col md:flex-row items-center justify-between">
-                <div className="md:w-1/2 mb-8 md:mb-0">
-                    <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t('welcome')}</h1>
-                    <p className="text-xl mb-6 text-gray-700 dark:text-gray-300">
-                        {t('intro')}
-                    </p>
-                    <Link href="/projects" className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
-                        {t('viewMyWork')}
-                    </Link>
-                </div>
-                <div className="md:w-1/2">
-                    <Image
-                        src="/images/profile.jpg"
-                        alt={t('profilePicture')}
-                        width={400}
-                        height={400}
-                        className="rounded-full"
-                    />
+        <>
+            <Head>
+                <title>{t('welcome')} | {t('yourName')}</title>
+                <meta name="description" content={t('intro')} />
+            </Head>
+            <div className={`transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+                <div className="flex flex-col md:flex-row items-center justify-between">
+                    <div className="md:w-1/2 mb-8 md:mb-0">
+                        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t('welcome')}</h1>
+                        <p className="text-xl mb-6 text-gray-700 dark:text-gray-300">
+                            {t('intro', { name: t('yourName') })}
+                        </p>
+                        <Link href="/projects" className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            {t('viewMyWork')}
+                        </Link>
+                    </div>
+                    <div className="md:w-1/2">
+                        <Image
+                            src="/images/profile.jpg"
+                            alt={t('profilePicture')}
+                            width={400}
+                            height={400}
+                            className="rounded-full"
+                            priority
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
