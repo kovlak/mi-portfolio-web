@@ -39,5 +39,11 @@
   "close": "Close",
   "openMenu": "Open menu",
   "closeMenu": "Close menu",
-  "skillsDescription": "Explore my technical skills and expertise in various programming languages, frameworks, and tools."
+  "skillsDescription": "Explore my technical skills and expertise in various programming languages, frameworks, and tools.",
+  "contactDescription": "Get in touch with me. I'd love to hear from you!",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "send": "Send",
+  "formSubmissionSuccess": "Thank you for your message. I'll get back to you soon!"
 }
